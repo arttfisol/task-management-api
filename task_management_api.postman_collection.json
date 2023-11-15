@@ -1,0 +1,149 @@
+{
+	"info": {
+		"_postman_id": "5eed46c3-6495-4e0d-81d4-9d6970fceb83",
+		"name": "Task Management API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "10849441"
+	},
+	"item": [
+		{
+			"name": "List taks",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "user1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{task_management_api}}/api/tasks",
+					"host": [
+						"{{task_management_api}}"
+					],
+					"path": [
+						"api",
+						"tasks"
+					],
+					"query": [
+						{
+							"key": "statuses",
+							"value": "created,done",
+							"disabled": true
+						},
+						{
+							"key": "due_dates",
+							"value": "2023-10-15,2023-05-01",
+							"disabled": true
+						},
+						{
+							"key": "due_date_since",
+							"value": "2013-05-01",
+							"disabled": true
+						},
+						{
+							"key": "due_date_until",
+							"value": "2023-12-01",
+							"disabled": true
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"disabled": true
+						},
+						{
+							"key": "offset",
+							"value": "0",
+							"disabled": true
+						},
+						{
+							"key": "order",
+							"value": "asc",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add task",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "user1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"task001\",\n    \"title\": \"title of task\",\n    \"description\": \"desc of task\",\n    \"due_date\": \"2023-01-01\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{task_management_api}}/api/tasks"
+			},
+			"response": []
+		},
+		{
+			"name": "Get task",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "user1",
+						"type": "text"
+					}
+				],
+				"url": "{{task_management_api}}/api/tasks/task001"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete task",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "user1",
+						"type": "text"
+					}
+				],
+				"url": "{{task_management_api}}/api/tasks/task001"
+			},
+			"response": []
+		},
+		{
+			"name": "Update task",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "user1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Edited title\",\n    \"description\": \"Edited description\",\n    \"due_date\": \"2023-1-10\",\n    \"status\": \"done\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{task_management_api}}/api/tasks/task001"
+			},
+			"response": []
+		}
+	]
+}
