@@ -75,7 +75,7 @@ and then exit
 exit
 ```
 ## Testing
-For testing, you can use curl in example below to request to API, or use [task_management_api.postman_collection.json](https://pages.github.com/) by import to your postman
+For testing, you can use curl in example below to request to API, or use [task_management_api.postman_collection.json](https://github.com/arttfisol/task-management-api/blob/master/task_management_api.postman_collection.json) by import to your postman
 ## About Database
 From script to initial database, we create 2 tables\
 The first one is `user` table, there are only 2 fields
