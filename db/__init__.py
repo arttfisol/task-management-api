@@ -79,7 +79,6 @@ class Database:
                     condition_list.append(
                         f"{config.POSTGRES_TASK_TABLENAME}.due_date {due_dates}"
                     )
-
                 if created_users:
                     condition_list.append(
                         f"{config.POSTGRES_TASK_TABLENAME}.created_by {created_users}"

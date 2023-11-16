@@ -23,6 +23,8 @@ def list_task_validation(f):
         try:
             validate_query(query, "limit", "int", False, False, None)
             validate_query(query, "offset", "int", False, False, None)
+            validate_query(query, "created_users", "str", False, True, None)
+            validate_query(query, "updated_users", "str", False, True, None)
             validate_query(
                 query,
                 "order",

@@ -25,6 +25,7 @@ def validate_query_type(value, _type, enum):
 def validate_query(query, field, inner_type, required, is_array, enum):
     value = query.get(field)
 
+    # None for query string mean field not include in query string
     if value is None and required:
         raise ValueError(f"{field} is required")
 
