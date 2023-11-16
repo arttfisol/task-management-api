@@ -64,8 +64,8 @@ def add_task():
         )
         return {"error": False, "id": inserted_id}
     except IntegrityError as e:
-        print(e.pgerror)
-        return {"error": "Bad request", "message": e.pgerror}, 400
+        message = "Duplicate ID" if e.pgcode == "23505" else e.pgcode
+        return {"error": "Bad request", "message": message}, 400
     except Exception as e:
         raise e
 
