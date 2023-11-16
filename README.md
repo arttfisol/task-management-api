@@ -22,9 +22,16 @@ docker pull postgres:12.16-bullseye
 ```
 docker run --name postgres -e POSTGRES_PASSWORD={password} -d -p 5432:5432 postgres:12.16-bullseye
 ```
-3. Recheck if it's working properly
+3. Create database (Replace `DB_NAME` with your db name)
 ```
-docker ps
+docker exec -it postgres sh
+```
+```
+psql -U postgres -c "CREATE DATABASE {DB_NAME}"
+```
+and then exit
+```
+exit
 ```
 ---
 ### Clone Repository
@@ -67,7 +74,8 @@ docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' {con
 ```
 docker run -d --name task-management-api -v $(pwd)/.env:/usr/src/.env -p {port}:{port} task-management-api:1.0.0 
 ```
-3. Initial Database (there are commands to drop table to make sure that DB name and tabel name in .env file are correct)
+1. Initial Database (there are commands to drop table to make sure that DB name and tabel name in .env file are correct) 
+**`POSTGRES_DBNAME` must exist before run this command**
 ```
 docker exec -it task-management-api sh
 ```
