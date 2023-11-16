@@ -18,7 +18,7 @@ wget -qO- https://get.docker.com/ | sh
 ```
 docker pull postgres:12.16-bullseye
 ```
-2. Run service (change {password} to yours)
+2. Run service (change `{password}` to yours)
 ```
 docker run --name postgres -e POSTGRES_PASSWORD={password} -d -p 5432:5432 postgres:12.16-bullseye
 ```
@@ -59,7 +59,11 @@ POSTGRES_DBNAME=test_db
 POSTGRES_TASK_TABLENAME=test_tasks
 POSTGRES_USER_TABLENAME=test_users
 ```
-2. Run API (Change the port before run this command)
+Ps. if your `PostgreSQL` run in the same machine and in `Docker`, run the command below retrieve `POSTGRES_HOST` and replace it in .env file
+```
+docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' {container_name or container ID}
+```
+2. Run API (Change the `{port}` to `PORT` in .env file before run this command)
 ```
 docker run -d --name task-management-api -v $(pwd)/.env:/usr/src/.env -p {port}:{port} task-management-api:1.0.0 
 ```
