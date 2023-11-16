@@ -22,12 +22,12 @@ docker pull postgres:12.16-bullseye
 ```
 docker run --name postgres -e POSTGRES_PASSWORD={password} -d -p 5432:5432 postgres:12.16-bullseye
 ```
-3. Create database (Replace `DB_NAME` with your db name)
+3. Create database (Replace `{db_name}` with your db name)
 ```
 docker exec -it postgres sh
 ```
 ```
-psql -U postgres -c "CREATE DATABASE {DB_NAME}"
+psql -U postgres -c "CREATE DATABASE {db_name}"
 ```
 and then exit
 ```
