@@ -18,11 +18,11 @@ wget -qO- https://get.docker.com/ | sh
 ```
 docker pull postgres:12.16-bullseye
 ```
-2. Run service (change `{password}` to yours)
+1. Run service (replace `{password}` with your passward)
 ```
 docker run --name postgres -e POSTGRES_PASSWORD={password} -d -p 5432:5432 postgres:12.16-bullseye
 ```
-3. Create database (Replace `{db_name}` with your db name)
+1. Create database (replace `{db_name}` with your db name)
 ```
 docker exec -it postgres sh
 ```
@@ -43,7 +43,7 @@ or
 ```
 git clone https://github.com/arttfisol/task-management-api.git
 ```
-2. Change directory to the project
+1. Change directory to the project
 ```
 cd task-management-api
 ```
